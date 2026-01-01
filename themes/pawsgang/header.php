@@ -69,38 +69,64 @@
     </div>
 
     <header id="masthead" class="site-header">
-      <div class="site-branding">
-        <?php
-        the_custom_logo();
-        if (is_front_page() && is_home()) :
-        ?>
-        <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-        </h1>
-        <?php
-        else :
-        ?>
-        <p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
-        </p>
-        <?php
-        endif;
-        $pawsgang_description = get_bloginfo('description', 'display');
-        if ($pawsgang_description || is_customize_preview()) :
-        ?>
-        <p class="site-description"><?php echo $pawsgang_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-                                      ?></p>
-        <?php endif; ?>
-      </div><!-- .site-branding -->
 
-      <nav id="site-navigation" class="main-navigation">
-        <button class="menu-toggle" aria-controls="primary-menu"
-          aria-expanded="false"><?php esc_html_e('Primary Menu', 'pawsgang'); ?></button>
-        <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'menu-1',
-            'menu_id'        => 'primary-menu',
-          )
-        );
-        ?>
-      </nav><!-- #site-navigation -->
+      <div class="container pt-2 pb-2">
+
+        <div class="row align-items-center">
+
+          <!-- logo -->
+          <div class="col site-header__logo d-flex justify-content-center justify-content-md-start">
+            <?php the_custom_logo(); ?>
+          </div>
+
+          <!-- search bar -->
+          <div class="col-sm-12 col-md-5">
+            <?php aws_get_search_form(true); ?>
+          </div>
+
+          <div class="col cart d-flex justify-content-center justify-content-md-end align-items-center pt-2">
+
+            <!-- cart icon -->
+            <a href="<?php echo wc_get_cart_url(); ?>"><i class="bi bi-bag-dash p-2"></i></a>
+
+            <!-- total items in cart -->
+            <a class="cart-customlocation" href="<?php echo wc_get_cart_url(); ?>"
+              title="<?php _e('View your shopping cart'); ?>"><?php echo sprintf(_n('%d item', '%d items', WC()->cart->get_cart_contents_count()), WC()->cart->get_cart_contents_count()); ?>
+              – <?php echo WC()->cart->get_cart_total(); ?></a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- main menu -->
+      <nav id="site-navigation" class="main-navigation bg-primary">
+        <div class="container d-flex justify-content-center">
+
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <i class="bi bi-list"></i>
+                <?php esc_html_e('Primary Menu', 'pawsgang'); ?>
+              </button>
+            </div>
+
+            <div class="col-12 text-center">
+              <?php
+              wp_nav_menu(
+                array(
+                  'theme_location' => 'menu-1',
+                  'menu_id'        => 'primary-menu'
+                )
+              );
+              ?>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </nav>
+
     </header><!-- #masthead -->
