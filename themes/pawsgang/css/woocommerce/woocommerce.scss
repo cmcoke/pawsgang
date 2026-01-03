@@ -296,7 +296,8 @@ p.demo_store,
           }
 
           &.active {
-            background: $contentbg;
+            // background: $contentbg;
+            background: #418607;
             color: $secondarytext;
             z-index: 2;
             border-bottom-color: $contentbg;

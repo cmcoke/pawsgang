@@ -100,13 +100,13 @@
  */
 @font-face {
   font-family: "star";
-  src: url("../fonts/WooCommerce.woff2") format("woff2"), url("../fonts/WooCommerce.woff") format("woff"), url("../fonts/WooCommerce.ttf") format("truetype");
+  src: url("./fonts/WooCommerce.woff2") format("woff2"), url("./fonts/WooCommerce.woff") format("woff"), url("./fonts/WooCommerce.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "WooCommerce";
-  src: url("../fonts/WooCommerce.woff2") format("woff2"), url("../fonts/WooCommerce.woff") format("woff"), url("../fonts/WooCommerce.ttf") format("truetype");
+  src: url("./fonts/WooCommerce.woff2") format("woff2"), url("./fonts/WooCommerce.woff") format("woff"), url("./fonts/WooCommerce.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -663,7 +663,7 @@ p.demo_store a,
   color: white;
 }
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active {
-  background: #fff;
+  background: #418607;
   color: #fff;
   z-index: 2;
   border-bottom-color: #fff;
